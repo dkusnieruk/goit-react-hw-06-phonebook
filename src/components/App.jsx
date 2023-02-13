@@ -7,21 +7,7 @@ import { Filters } from 'features/Filter/Filter';
 function App() {
   const getStorage = localStorage.getItem('contact');
   let [contacts, setContacts] = useState(JSON.parse(getStorage));
-  const [filter, setFilter] = useState('');
-  const handleRemove = id => {
-    const newList = contacts.filter(item => item.id !== id);
-    setContacts(newList);
-  };
-
-  const handleInputChange = event => {
-    const { value } = event.target;
-    setFilter(value);
-  };
-
-  const handleSearch = () => {
-    setFilter(filter);
-  };
-
+ 
   useEffect(() => {
     localStorage.setItem(`contact`, JSON.stringify(contacts));
   }, [contacts]);
@@ -47,8 +33,6 @@ function App() {
   };
   return (
     <>
-      <h1>Redux Toolkit Project</h1>
-      
       <Contacts/>
       <Filters/>
       <ContactList/>

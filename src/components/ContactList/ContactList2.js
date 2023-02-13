@@ -1,6 +1,7 @@
 import { selectContacts } from "features/Contacts/ContactsSlice";
 import { selectFilters } from "features/Filter/FilterSlice";
 import { useSelector } from "react-redux";
+import css from '../ContactList/contactList.module.css'
 import ContactItem from "components/ContactItem/ContactItem2";
 function ContactList() {
     const contacts = useSelector(selectContacts)
@@ -9,7 +10,7 @@ function ContactList() {
     console.log(filter.filters);
     return (<>
     <ul 
-    // className={css.listMain}
+    className={css.listMain}
     >
       {contacts
         // .filter(contact => {
