@@ -7,18 +7,19 @@ function ContactList() {
     const contacts = useSelector(selectContacts)
     
     const filter = useSelector(selectFilters)
-    console.log(filter.filters);
+    const filterValue = filter.filters 
+    console.log(filter);
     return (<>
     <ul 
     className={css.listMain}
     >
       {contacts
-        // .filter(contact => {
-        //   const searchType = filter.toLowerCase();
-        //   const contactType = contact.name.toLowerCase();
+        .filter(contact => {
+          const searchType = filterValue.toLowerCase();
+          const contactType = contact.name.toLowerCase();
 
-        //   return contactType.includes(searchType);
-        // })
+          return contactType.includes(searchType);
+        })
         .map((contact, index) => {
           return (
             <ContactItem
