@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
 import { nanoid } from 'nanoid';
-import ContactForm from './ContactForm/ContactForm';
-import Filter from './Filter/Filter';
-import ContactList from './ContactList/ContactList';
+import { Contacts } from 'features/Contacts/Contacts';
+import ContactList from './ContactList/ContactList2';
+import { Filters } from 'features/Filter/Filter';
 
 function App() {
   const getStorage = localStorage.getItem('contact');
@@ -47,22 +47,14 @@ function App() {
   };
   return (
     <>
-      <ContactForm
-        contacts={contacts}
-        setContacts={setContacts}
-        onSubmit={onSubmit}
-      />
-      <Filter
-        contacts={contacts}
-        filter={filter}
-        handleSearch={handleSearch}
-        handleChange={handleInputChange}
-      />
-      <ContactList
-        contacts={contacts}
-        filter={filter}
-        handleRemove={handleRemove}
-      />
+      <h1>Redux Toolkit Project</h1>
+      
+      <Contacts/>
+      <Filters/>
+      <ContactList/>
+      
+      <br/>
+    
     </>
   );
 }
