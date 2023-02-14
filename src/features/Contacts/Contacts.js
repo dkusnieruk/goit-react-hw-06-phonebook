@@ -1,41 +1,35 @@
-import React, {useRef} from "react";
-import {useDispatch } from "react-redux";
-import { addContact} from "./ContactsSlice";
-import { nanoid } from "@reduxjs/toolkit";
-import css from '../Contacts/contacts.module.css'
+import React, { useRef } from 'react';
+import { useDispatch } from 'react-redux';
+import { addContact } from './ContactsSlice';
+import { nanoid } from '@reduxjs/toolkit';
+import css from '../Contacts/contacts.module.css';
 
-export function Contacts(){
-    const inputName = useRef(null)
-    const inputNumber= useRef(null)
-    const dispatch = useDispatch()
-    const handleAddContact = () =>{
-        const contactText = inputName.current.value;
-        const numberText  = inputNumber.current.value;
-        dispatch(
-            addContact({
-                id:nanoid(),
-                name:contactText,
-                number:numberText
-            })
+export function Contacts() {
+  const inputName = useRef(null);
+  const inputNumber = useRef(null);
+  const dispatch = useDispatch();
+  const handleAddContact = () => {
+    const contactText = inputName.current.value;
+    const numberText = inputNumber.current.value;
+    dispatch(
+      addContact({
+        id: nanoid(),
+        name: contactText,
+        number: numberText,
+      })
+    );
+    inputName.current.value = '';
+    inputNumber.current.value = '';
+  };
 
-        );
-        inputName.current.value = '';
-        inputNumber.current.value='';
-    }
-
-    const handleSubmit = (event) =>{
-        event.preventDefault()
-        handleAddContact()
-    }
-    return(
-        <>
-        <form
-        className={css.form} 
-        onSubmit={handleSubmit}
-        >
-        <label 
-        className={css.label}
-        >
+  const handleSubmit = event => {
+    event.preventDefault();
+    handleAddContact();
+  };
+  return (
+    <>
+      <form className={css.form} onSubmit={handleSubmit}>
+        <label className={css.label}>
           Name
           <input
             className={css.input}
@@ -48,9 +42,7 @@ export function Contacts(){
             required
           />
         </label>
-        <label 
-        className={css.label}
-        >
+        <label className={css.label}>
           Number
           <input
             ref={inputNumber}
@@ -63,15 +55,10 @@ export function Contacts(){
             required
           />
         </label>
-        <button 
-        className={css.button} 
-        type="submit"
-        >
+        <button className={css.button} type="submit">
           Add Contact
         </button>
       </form>
-        </>
-    )
-
-
+    </>
+  );
 }
