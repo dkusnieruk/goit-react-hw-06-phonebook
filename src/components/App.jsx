@@ -1,6 +1,6 @@
-import { Contacts } from 'features/Contacts/Contacts';
-import ContactList from './ContactList/ContactList2';
-import { Filters } from 'features/Filter/Filter';
+import { Contacts } from 'components/Contacts/Contacts';
+import ContactList from './ContactList/ContactList';
+import { Filters } from 'components/Filter/Filter';
 
 function App() {
   return (
@@ -8,8 +8,6 @@ function App() {
       <Contacts />
       <Filters />
       <ContactList />
-
-      <br />
     </>
   );
 }

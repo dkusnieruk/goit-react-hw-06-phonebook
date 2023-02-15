@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 import { useDispatch } from 'react-redux';
-import { addContact } from './ContactsSlice';
+import { addContact } from '../../Redux/ContactsSlice';
 import { nanoid } from '@reduxjs/toolkit';
 import css from '../Contacts/contacts.module.css';
 
