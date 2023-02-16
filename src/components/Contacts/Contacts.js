@@ -3,15 +3,32 @@ import { useDispatch } from 'react-redux';
 import { addContact } from '../../Redux/ContactsSlice';
 import { nanoid } from '@reduxjs/toolkit';
 import css from '../Contacts/contacts.module.css';
+import { selectContacts } from '../../Redux/ContactsSlice';
+import { useSelector } from 'react-redux';
 
 export function Contacts() {
   const inputName = useRef(null);
   const inputNumber = useRef(null);
+  const contacts = useSelector(selectContacts);
 
   const dispatch = useDispatch();
   const handleAddContact = () => {
     const contactText = inputName.current.value;
     const numberText = inputNumber.current.value;
+    
+    const checkArray = contacts.filter(contact => {
+      const filterArray = contact.name.toLowerCase();
+      const filterName = contactText.toLowerCase();
+
+      if (filterArray.includes(filterName)) {
+        return true;
+      } else return false;
+    });
+
+    if (checkArray.length > 0) {
+      alert(`Masz już kontakt o imieniu : ${contactText}`);
+    }
+    else 
 
     dispatch(
       addContact({

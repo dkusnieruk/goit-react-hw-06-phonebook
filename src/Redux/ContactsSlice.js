@@ -17,18 +17,7 @@ export const contactsSlice = createSlice({
   initialState,
   reducers: {
     addContact: (state, action) => {
-      const checkArray = state.filter(contact => {
-        const filterArray = contact.name.toLowerCase();
-        const filterName = action.payload.name.toLowerCase();
-
-        if (filterArray.includes(filterName)) {
-          return true;
-        } else return false;
-      });
-
-      if (checkArray.length > 0) {
-        alert(`Masz już kontakt o imieniu : ${action.payload.name}`);
-      } else state.push(action.payload);
+      state.push(action.payload);
       localStorage.setItem(`contact`, JSON.stringify(state, action.payload));
     },
     deleteContact(state, action) {
