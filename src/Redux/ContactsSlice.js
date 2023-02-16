@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialStorage = JSON.parse(localStorage.getItem(`contact`));
-console.log(initialStorage);
+
 const initialState =
   initialStorage !== null
     ? initialStorage

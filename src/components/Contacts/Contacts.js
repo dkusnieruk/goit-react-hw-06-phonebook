@@ -7,10 +7,12 @@ import css from '../Contacts/contacts.module.css';
 export function Contacts() {
   const inputName = useRef(null);
   const inputNumber = useRef(null);
+
   const dispatch = useDispatch();
   const handleAddContact = () => {
     const contactText = inputName.current.value;
     const numberText = inputNumber.current.value;
+
     dispatch(
       addContact({
         id: nanoid(),

@@ -1,5 +1,7 @@
 import { deleteContact } from 'Redux/ContactsSlice';
 import { useDispatch } from 'react-redux';
+import propTypes from 'prop-types';
+
 import css from '../ContactItem/contactItem.module.css';
 function ContactItem({ contact }) {
   const dispatch = useDispatch();
@@ -19,5 +21,15 @@ function ContactItem({ contact }) {
     </>
   );
 }
+ContactItem.propTypes = {
+  deleteContact: propTypes.func,
+  contacts: propTypes.arrayOf(
+    propTypes.shape({
+      id: propTypes.string,
+      name: propTypes.string,
+      number: propTypes.number,
+    })
+  ),
+};
 
 export default ContactItem;
