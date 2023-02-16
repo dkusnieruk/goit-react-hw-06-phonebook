@@ -1,10 +1,9 @@
 import React, { useRef } from 'react';
-import { useDispatch } from 'react-redux';
-import { addContact } from '../../Redux/ContactsSlice';
+import { useDispatch, useSelector } from 'react-redux';
+import { addContact, selectContacts } from '../../Redux/ContactsSlice';
 import { nanoid } from '@reduxjs/toolkit';
 import css from '../Contacts/contacts.module.css';
-import { selectContacts } from '../../Redux/ContactsSlice';
-import { useSelector } from 'react-redux';
+
 
 export function Contacts() {
   const inputName = useRef(null);
